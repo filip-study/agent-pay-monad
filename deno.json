@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "start": "deno run --allow-net --allow-env src/deno-main.ts",
+    "smoke": "node test/smoke.mjs",
+    "tipcheck": "node src/tipcheck.mjs"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "agent-pay-monad",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent payment + identity discovery on Monad (Metropolis Track 04/02)",
+  "type": "module",
+  "scripts": {
+    "smoke": "node test/smoke.mjs",
+    "tipcheck": "node src/tipcheck.mjs",
+    "start": "deno task start"
+  },
+  "license": "MIT"
+}
