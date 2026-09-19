@@ -1,5 +1,7 @@
 # Metropolis — exact next UI clicks
 
+> **STATUS 2026-09-19 14:42 CEST:** Team + project draft **DONE** (Track 04). Public GH https://github.com/filip-study/agent-pay-monad. Final **SUBMIT** intentionally left for after **2026-09-22 05:59 CEST**. See `scouts/MONAD-build.md`.
+
 **No public team/project create API** was found (`/api`, `/api/teams`, `/api/projects` → SPA 404; no documented CLI). Team + project must be created in the dashboard UI while signed in as **Palm Beach Pete** (GitHub OAuth `filip-study`).
 
 Dashboard: https://hackathon.monad.xyz/dashboard  
