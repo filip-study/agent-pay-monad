@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>agent-pay-monad — Monad Metropolis demo</title>
+  <meta name="description" content="Free agent payment + identity discovery on Monad. Metropolis Track 04 demo by Palm Beach Pete." />
+  <style>
+    :root { --bg:#0b1020; --card:#121a2f; --ink:#e8eefc; --muted:#9bb0d3; --acc:#7c9cff; --ok:#3dd68c; --pay:#ffb020; --bad:#ff6b7a; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:15px/1.45 ui-sans-serif,system-ui,sans-serif; background:radial-gradient(1200px 600px at 10% -10%,#1a2a55,transparent),var(--bg); color:var(--ink); }
+    main { max-width:920px; margin:0 auto; padding:28px 18px 64px; }
+    h1 { font-size:1.65rem; margin:0 0 6px; }
+    .sub { color:var(--muted); margin:0 0 18px; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 22px; }
+    .badge { background:#1b2744; border:1px solid #2a3b66; color:var(--muted); padding:4px 10px; border-radius:999px; font-size:12px; }
+    .badge.ok { color:var(--ok); border-color:#2a5a44; }
+    .grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .card { background:var(--card); border:1px solid #243356; border-radius:14px; padding:14px 14px 12px; }
+    .card h2 { font-size:0.95rem; margin:0 0 8px; color:var(--acc); }
+    .card p, .card li { color:var(--muted); font-size:13px; }
+    code, pre { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    pre { background:#0a1224; border:1px solid #243356; border-radius:10px; padding:10px; overflow:auto; max-height:280px; font-size:12px; color:#d7e3ff; }
+    .row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    button, a.btn { appearance:none; border:1px solid #35508a; background:#1a2b52; color:var(--ink); padding:8px 12px; border-radius:10px; cursor:pointer; text-decoration:none; font-size:13px; }
+    button:hover, a.btn:hover { border-color:var(--acc); }
+    .status { font-size:12px; color:var(--muted); }
+    .status .code { font-weight:700; }
+    .code.s200 { color:var(--ok); } .code.s402 { color:var(--pay); } .code.s0 { color:var(--bad); }
+    footer { margin-top:28px; color:var(--muted); font-size:12px; }
+    a { color:var(--acc); }
+    .mono { word-break:break-all; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>agent-pay-monad</h1>
+  <p class="sub">Metropolis Track <strong>04 Trust / Identity / AI</strong> · free agent discovery + Monad USDC x402 stub · built by <strong>Palm Beach Pete</strong></p>
+  <div class="badges">
+    <span class="badge ok">demo live</span>
+    <span class="badge">chainId 143 (Monad)</span>
+    <span class="badge">treasury 0xbAd4…019b</span>
+    <span class="badge">$0 capital scaffold</span>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Live endpoint probe</h2>
+      <p>Hits the Cloudflare Worker when available; falls back to in-browser handler (same code as production).</p>
+      <div class="row">
+        <button type="button" data-path="/">GET /</button>
+        <button type="button" data-path="/health">/health</button>
+        <button type="button" data-path="/agent">/agent</button>
+        <button type="button" data-path="/paylink?amount=10000">/paylink</button>
+        <button type="button" data-path="/ping?hello=monad">/ping</button>
+        <button type="button" data-path="/premium">/premium (402)</button>
+      </div>
+      <p class="status">Source: <span id="src">—</span> · HTTP <span id="code" class="code s0">—</span></p>
+      <pre id="out">Click an endpoint…</pre>
+    </section>
+
+    <section class="card">
+      <h2>Permanent URLs</h2>
+      <ul>
+        <li><strong>This demo (GitHub Pages):</strong><br/><a class="mono" id="pagesUrl" href="#">loading…</a></li>
+        <li><strong>Live Worker API (x402 HTTP 402):</strong><br/><a class="mono" href="https://agent-pay-monad.pumped-fluorine.workers.dev/">https://agent-pay-monad.pumped-fluorine.workers.dev/</a></li>
+        <li><strong>Source:</strong><br/><a href="https://github.com/filip-study/agent-pay-monad">github.com/filip-study/agent-pay-monad</a></li>
+      </ul>
+      <p>Static JSON mirrors (Pages): <a href="./discovery.json">discovery.json</a> · <a href="./health.json">health</a> · <a href="./agent.json">agent</a> · <a href="./premium.json">premium body</a></p>
+      <div class="row">
+        <a class="btn" href="https://hackathon.monad.xyz/dashboard">Metropolis dashboard</a>
+        <a class="btn" href="https://shieldz.cash/tip/tip-d2599a4d16a6f4b0">Tip jar</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:14px">
+    <h2>What judges should see</h2>
+    <ol>
+      <li>Free discovery JSON with Monad USDC + x402 Permit2 proxies.</li>
+      <li>Agent identity card (<code>/agent</code>) — ERC-8004-inspired stub.</li>
+      <li><code>/premium</code> returns <strong>HTTP 402</strong> Payment Required shaped for Monad USDC → treasury (Worker). Pages UI simulates the same body via shared <code>handler.js</code>.</li>
+      <li>EIP-681 paylink for wallet-openable Monad USDC transfer.</li>
+    </ol>
+    <pre>curl -s https://agent-pay-monad.pumped-fluorine.workers.dev/ | jq .
+curl -s -o /dev/null -w "%{http_code}\n" https://agent-pay-monad.pumped-fluorine.workers.dev/premium
+# expect 402</pre>
+  </section>
+
+  <footer>
+    Palm Beach Pete · gh @filip-study · treasury <span class="mono">0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b</span><br/>
+    Hackathon submit window opens 2026-09-22 05:59 CEST · do not early-submit.
+  </footer>
+</main>
+<script type="module">
+  import { handleRequest } from "./handler.js";
+  const WORKER = "https://agent-pay-monad.pumped-fluorine.workers.dev";
+  const pagesUrl = location.origin + location.pathname.replace(/index\.html$/, "");
+  document.getElementById("pagesUrl").textContent = pagesUrl;
+  document.getElementById("pagesUrl").href = pagesUrl;
+
+  const out = document.getElementById("out");
+  const codeEl = document.getElementById("code");
+  const srcEl = document.getElementById("src");
+
+  async function probe(path) {
+    out.textContent = "Loading…";
+    codeEl.textContent = "…";
+    codeEl.className = "code s0";
+    // Prefer Worker for real HTTP status (esp. 402)
+    try {
+      const res = await fetch(WORKER + path, { mode: "cors" });
+      const text = await res.text();
+      srcEl.textContent = "cloudflare worker";
+      codeEl.textContent = String(res.status);
+      codeEl.className = "code s" + (res.status === 402 ? "402" : res.status === 200 ? "200" : "0");
+      out.textContent = text;
+      return;
+    } catch (_) { /* fall through */ }
+    const res = await handleRequest(new Request("https://demo.local" + path));
+    const text = await res.text();
+    srcEl.textContent = "in-browser handler.js (fallback)";
+    codeEl.textContent = String(res.status);
+    codeEl.className = "code s" + (res.status === 402 ? "402" : res.status === 200 ? "200" : "0");
+    out.textContent = text;
+  }
+
+  document.querySelectorAll("button[data-path]").forEach((btn) => {
+    btn.addEventListener("click", () => probe(btn.getAttribute("data-path")));
+  });
+  probe("/");
+</script>
+</body>
+</html>

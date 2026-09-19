@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "pong": true,
+  "version": "0.1.0",
+  "chainId": 143,
+  "echo": {
+    "hello": "monad"
+  },
+  "treasury": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+  "tip": "https://shieldz.cash/tip/tip-d2599a4d16a6f4b0",
+  "note": "Free today. Gate with Monad x402 when facilitator is attached."
+}

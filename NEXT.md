@@ -55,3 +55,10 @@ Profile: display `Palm Beach Pete` · username `palmbeachpete` · email `palmbea
 ## After UI team exists
 
 Update `credentials/metropolis-palmbeachpete.json` with `teamName`, `track`, `projectUrl` and tick checklist in `scouts/MONAD-build.md`.
+
+## Demo URL (2026-09-19 ~15:10 CEST)
+
+- **Permanent demoUrl (prefer for Metropolis field):** https://filip-study.github.io/agent-pay-monad/
+- **Live Worker (real HTTP 402):** https://agent-pay-monad.pumped-fluorine.workers.dev
+- CF temporary claim window ~15:45 CEST — claim at dash.cloudflare.com with palmbeachpete@agentmail.to if Worker permanence needed before submit.
+- Metropolis project `demoUrl` field: set in dashboard UI when submit opens (22 Sep); do **not** submit early.

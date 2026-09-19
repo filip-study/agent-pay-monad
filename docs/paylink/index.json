@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "service": "agent-pay-monad",
+  "chainId": 143,
+  "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+  "symbol": "USDC",
+  "payTo": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+  "amountAtomic": "10000",
+  "amountHuman": "0.01 USDC",
+  "eip681": "ethereum:0x754704Bc059F8C67012fEd69BC8A327a5aafb603@143/transfer?address=0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b&uint256=10000",
+  "explorerToken": "https://monadvision.com/token/0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+  "note": "Open in a wallet that supports EIP-681 + Monad (chain 143). Demo — no gas sponsored."
+}

@@ -1,0 +1,25 @@
+{
+  "ok": false,
+  "error": "payment_required",
+  "x402Version": 1,
+  "accepts": [
+    {
+      "scheme": "exact",
+      "network": "monad",
+      "chainId": 143,
+      "maxAmountRequired": "10000",
+      "resource": "/premium",
+      "description": "agent-pay-monad premium (stub — facilitator not wired)",
+      "mimeType": "application/json",
+      "payTo": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+      "maxTimeoutSeconds": 60,
+      "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+      "extra": {
+        "x402ExactPermit2Proxy": "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
+        "tip": "https://shieldz.cash/tip/tip-d2599a4d16a6f4b0",
+        "unlock": "https://shieldz.cash/unlock/NDS0MgohhA3PmPaBvmD0",
+        "note": "Until facilitator is attached, tip/unlock still work."
+      }
+    }
+  ]
+}

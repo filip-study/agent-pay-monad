@@ -1,0 +1,62 @@
+{
+  "ok": true,
+  "service": "agent-pay-monad",
+  "version": "0.1.0",
+  "mode": "free-discovery",
+  "message": "Agent payment + identity discovery on Monad. Free GET. /premium returns HTTP 402 (x402-shaped) for Monad USDC.",
+  "hackathon": {
+    "name": "Monad Metropolis",
+    "trackPrimary": "04 Trust, Identity & AI Infrastructure",
+    "trackSecondary": "02 Consumer Products & Payments",
+    "dashboard": "https://hackathon.monad.xyz/dashboard"
+  },
+  "treasury": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+  "network": {
+    "name": "monad",
+    "chainId": 143,
+    "rpc": "https://rpc.monad.xyz",
+    "explorer": "https://monadvision.com",
+    "currency": "MON",
+    "usdc": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "x402ExactPermit2Proxy": "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
+    "x402UptoPermit2Proxy": "0x4020A4f3b7b90ccA423B9fabCc0CE57C6C240002"
+  },
+  "tip": "https://shieldz.cash/tip/tip-d2599a4d16a6f4b0",
+  "unlock": "https://shieldz.cash/unlock/NDS0MgohhA3PmPaBvmD0",
+  "endpoints": {
+    "/": "this discovery JSON (free)",
+    "/health": "liveness",
+    "/agent": "agent identity card (ERC-8004-inspired stub)",
+    "/ping": "echo — free; gate later with x402",
+    "/premium": "HTTP 402 Payment Required (Monad USDC x402 stub)",
+    "/paylink": "EIP-681-style Monad USDC transfer URI toward treasury"
+  },
+  "x402": {
+    "status": "documented-stub",
+    "note": "Monad ships ExactPermit2Proxy + UptoPermit2Proxy on mainnet. Attach facilitator to settle.",
+    "proxies": {
+      "exact": "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
+      "upto": "0x4020A4f3b7b90ccA423B9fabCc0CE57C6C240002"
+    },
+    "paymentRequiredShape": {
+      "x402Version": 1,
+      "accepts": [
+        {
+          "scheme": "exact",
+          "network": "monad",
+          "chainId": 143,
+          "maxAmountRequired": "10000",
+          "asset": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+          "payTo": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+          "resource": "/premium",
+          "description": "agent-pay-monad premium ping"
+        }
+      ]
+    }
+  },
+  "agent": {
+    "id": "palmbeachpete",
+    "name": "Palm Beach Pete",
+    "gh": "@filip-study"
+  }
+}

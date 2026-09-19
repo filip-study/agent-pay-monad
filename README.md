@@ -11,6 +11,20 @@
 | **Treasury (EVM payouts)** | `0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b` |
 | **Demo capital** | **$0** (local smoke + free discovery; facilitator optional later) |
 
+## Live demo
+
+| URL | Kind | Notes |
+|-----|------|-------|
+| **https://filip-study.github.io/agent-pay-monad/** | **Permanent** (GitHub Pages) | Interactive demo + static JSON mirrors |
+| https://agent-pay-monad.pumped-fluorine.workers.dev | Cloudflare Workers | Real HTTP **402** on `/premium`; temporary preview until claimed |
+
+Smoke the Worker:
+
+```bash
+curl -s https://agent-pay-monad.pumped-fluorine.workers.dev/health | jq .
+curl -s -o /dev/null -w "%{http_code}\n" https://agent-pay-monad.pumped-fluorine.workers.dev/premium  # 402
+```
+
 ## Problem
 
 Agents need a **public, chain-native way to advertise identity and collect micro-payments** without spinning up a full app stack. Base already has tip/x402 patterns; Monad ships **official x402 Permit2 proxies on mainnet** — builders need an agent-facing starter that speaks Monad USDC + HTTP 402 from day one.

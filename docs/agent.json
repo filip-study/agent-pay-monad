@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "schema": "agent-pay-monad/agent-card@0.1",
+  "inspiredBy": "ERC-8004 agent identity & reputation (track example)",
+  "agent": {
+    "id": "palmbeachpete",
+    "displayName": "Palm Beach Pete",
+    "controller": "0xbAd41cF0f0d5442f9A53630F8081BFd257DA019b",
+    "chainId": 143,
+    "capabilities": [
+      "http-402-discovery",
+      "x402-accepts-monad-usdc",
+      "tip-unlock-funnel",
+      "eip681-paylink"
+    ],
+    "endpoints": {
+      "discovery": "/",
+      "premium": "/premium",
+      "paylink": "/paylink"
+    },
+    "reputation": {
+      "status": "bootstrap",
+      "note": "Onchain registry optional — see contracts/AgentRegistry.sol"
+    }
+  },
+  "network": {
+    "name": "monad",
+    "chainId": 143,
+    "rpc": "https://rpc.monad.xyz",
+    "explorer": "https://monadvision.com",
+    "currency": "MON",
+    "usdc": "0x754704Bc059F8C67012fEd69BC8A327a5aafb603",
+    "x402ExactPermit2Proxy": "0x402085c248EeA27D92E8b30b2C58ed07f9E20001",
+    "x402UptoPermit2Proxy": "0x4020A4f3b7b90ccA423B9fabCc0CE57C6C240002"
+  },
+  "gh": "@filip-study"
+}
