@@ -16,13 +16,13 @@
 | URL | Kind | Notes |
 |-----|------|-------|
 | **https://filip-study.github.io/agent-pay-monad/** | **Permanent** (GitHub Pages) | Interactive demo + static JSON mirrors |
-| https://agent-pay-monad.pumped-fluorine.workers.dev | Cloudflare Workers | Real HTTP **402** on `/premium`; temporary preview until claimed |
+| https://agent-pay-monad.palmbeachpete.workers.dev | Cloudflare Workers | Real HTTP **402** on `/premium`; permanent palmbeachpete workers.dev |
 
 Smoke the Worker:
 
 ```bash
-curl -s https://agent-pay-monad.pumped-fluorine.workers.dev/health | jq .
-curl -s -o /dev/null -w "%{http_code}\n" https://agent-pay-monad.pumped-fluorine.workers.dev/premium  # 402
+curl -s https://agent-pay-monad.palmbeachpete.workers.dev/health | jq .
+curl -s -o /dev/null -w "%{http_code}\n" https://agent-pay-monad.palmbeachpete.workers.dev/premium  # 402
 ```
 
 ## Problem
